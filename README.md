@@ -41,7 +41,7 @@ list: {
 ```
 edit: {
   title: '当前版块的名称，会显示在页面最上面',
-  structure: '需要在文件的顶部引入对应的js文件'
+  structure: '引入同页面的Edit结尾的文件'
 }
 ```
   
