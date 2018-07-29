@@ -1,27 +1,35 @@
-# zytao_admin
+# zytaoAdmin 
+## 个人站点的简易后台系统
 
-> A Vue.js project
+### 需要配置的地方
+#### config
+  index.js文件为基础的配置文件，
+  同级目录有一个views文件夹，里面是每个版块对应的edit所需的模块
+  配置文件的结构：
+  一个母对象为一个版块，
+  一个母对象有三个子对象，分别定义：
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+  菜单->必选：
+  menu: {
+    name: '版块的名字，会在左侧菜单显示',
+    icon: '版块的icon，默认目录为assets，icon大小为25*25，建议上传高倍图',
+    url: '版块的路由，为一级路由',
+    children: '如果当前版块有子版块，可以定义在这里，目录结构同上，最多只允许有两级目录叠加'
+  }
+  列表->必选：
+  list: {
+    title: '当前版块的名称，会显示在页面最上面',
+    funBotton: ['add', ['select', 'selectData']],列表页顶部的操作按钮，add为新增按钮，select为筛选按钮，selectData为筛选的数据
+    viewData: {
+      列表上需要显示的字段 -> 最后一栏默认是快捷操作按钮
+      showField: ['id', 'title', 'tmb', 'time'],
+      快捷操作按钮 -> 默认的五个：修改、查看、置顶、删除、排序
+      tools: ['modify', 'look', 'up', 'del', 'order'],
+      orderby: '列表的排序规则'
+    }
+  }
+  内页->可选：
+  edit: {
+    title: '当前版块的名称，会显示在页面最上面',
+    structure: '需要在文件的顶部引入对应的js文件'
+  }
