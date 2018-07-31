@@ -26,12 +26,13 @@ menu: {
 ```
 list: {
   title: '当前版块的名称，会显示在页面最上面',
-  funBotton: ['add', ['select', 'selectData']],列表页顶部的操作按钮，add为新增按钮，select为筛选按钮，selectData为筛选的数据
+  funBotton: ['add', ['select', 'selectData'], 'reload', 'batchDel'],
+  - 列表页顶部的操作按钮，add为新增按钮，select为筛选按钮，selectData为筛选的数据，reload为刷新按钮，batchDel为批量删除按钮
   viewData: {
     列表上需要显示的字段 -> 最后一栏默认是快捷操作按钮
     showField: ['id', 'title', 'tmb', 'time'],
     快捷操作按钮 -> 默认的五个：修改、查看、置顶、删除、排序
-    tools: ['modify', 'look', 'up', 'del', 'order'],
+    tools: ['modify', 'read', 'hot', 'del', 'order'],
     orderby: '列表的排序规则'
   }
 }
