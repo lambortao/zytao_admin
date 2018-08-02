@@ -2,37 +2,43 @@ import Vue from 'vue'
 import Router from 'vue-router'
 let Home = () => import('@/views/home');
 let Login = () => import('@/views/login');
-let Welcome = () => import('@/views/welcome');
-let FriendList = () => import('@/views/friendList');
-let FriendEdit = () => import('@/views/friendEdit');
-let articleList = () => import('@/views/articleList');
-let articleEdit = () => import('@/views/articleEdit');
-let projectList = () => import('@/views/projectList');
-let projectEdit = () => import('@/views/projectEdit');
 
-let routerArr = [
-  {
-    path: 'friend',
-    name: 'friend',
-    component: resolve => {
-      require(['@/views/friendList.vue'], resolve);
-    }
-  }
-]
-console.log(routerArr);
+
 Vue.use(Router);
 export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/home',
       name: 'Home',
       component: Home,
     },
     {
       path: '/home',
-      name: 'Home',
+      name: 'one',
       component: Home,
-      children: routerArr
+      children: [
+        {
+          path: 'friend',
+          name: 'friend',
+          component: () => import('@/views/friend/list')
+        },
+        {
+          path: 'friend/edit',
+          name: 'friendEdit',
+          component: () => import('@/views/friend/edit')
+        },
+        {
+          path: 'article',
+          name: 'article',
+          component: () => import('@/views/article/list')
+        },
+        {
+          path: 'article/edit',
+          name: 'articleEdit',
+          component: () => import('@/views/article/edit')
+        }
+      ]
     },
     {
       path: '/',
