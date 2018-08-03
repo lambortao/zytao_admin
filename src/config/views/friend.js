@@ -7,7 +7,7 @@ const friendEdit = {
 const friendBasic = {
   menu: {
     name: '友链',
-    icon: 'images/4.png',
+    icon: 'images/friend.png',
     url: 'friend'
   },
   list: {

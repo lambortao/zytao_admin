@@ -23,7 +23,7 @@ const thinkEdit = {
 const thinkBasic = {
   menu: {
     name: '话痨',
-    icon: 'images/1.png',
+    icon: 'images/think.png',
     url: 'think'
   },
   list: {

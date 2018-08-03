@@ -7,7 +7,7 @@ const projectEdit = {
 const projectBasic = {
   menu: {
     name: '项目',
-    icon: 'images/2.png',
+    icon: 'images/project.png',
     url: 'project'
   },
   list: {

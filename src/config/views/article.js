@@ -7,7 +7,7 @@ const articleEdit = {
 const articleBasic = {
   menu: {
     name: '文章',
-    icon: 'images/3.png',
+    icon: 'images/article.png',
     url: 'article'
   },
   list: {

@@ -1,5 +1,10 @@
 const router = [
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login')
+  },
+  {
     path: '/',
     redirect: '/home',
     name: 'Home',
@@ -61,11 +66,6 @@ const router = [
         component: () => import('@/views/single/user')
       }
     ]
-  },
-  {
-    path: '/',
-    name: 'Login',
-    component: () => import('@/views/login')
   }
 ]
 
