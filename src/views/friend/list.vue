@@ -1,5 +1,7 @@
 <template>
-  <div id="frindList">xxxxxx</div>
+  <div id="frindList">
+    这里是友链列表页
+  </div>
 </template>
 
 <script>

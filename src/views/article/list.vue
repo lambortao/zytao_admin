@@ -1,5 +1,7 @@
 <template>
-  <div id="articleList"></div>
+  <div id="articleList">
+    这里是文章列表页
+  </div>
 </template>
 <script>
 export default {

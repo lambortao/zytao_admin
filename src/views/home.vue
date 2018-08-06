@@ -3,8 +3,9 @@
     <Menu></Menu>
     <div id="home">
       <Header></Header>
-      <Tab></Tab>
-      <router-view/>
+      <div class="content-box">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +31,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '../assets/scss/method.scss';
+
 .main{
   display: flex;
   justify-content: space-between;
@@ -38,6 +41,19 @@ export default {
 
   #home{
     flex: 1;
+
+    .content-box{
+      padding: 10px;
+
+      > div{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid $borderColorLight;
+        padding: 10px;
+      }
+    }
   }
 }
 </style>

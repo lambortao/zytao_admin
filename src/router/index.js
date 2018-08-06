@@ -5,6 +5,7 @@ import routes from '@/config/router.js';
 Vue.use(Router);
 console.log(routes);
 const router = new Router({
-  routes
+  routes,
+  linkActiveClass: 'active'
 })
 export default router;

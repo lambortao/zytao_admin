@@ -1,5 +1,7 @@
 <template>
-  <div id="userBox"></div>
+  <div id="userBox">
+    这里是个人中心页面
+  </div>
 </template>
 
 <script>

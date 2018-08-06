@@ -1,5 +1,7 @@
 <template>
-  <div id="projectList"></div>
+  <div id="projectList">
+    这里是项目列表页
+  </div>
 </template>
 
 <script>

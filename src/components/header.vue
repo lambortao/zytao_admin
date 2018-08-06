@@ -1,6 +1,8 @@
 <template>
   <div id="header">
-    <div class="user"></div>
+    <div class="user">
+      <a href="javascirpt:;"></a>
+    </div>
   </div>
 </template>
 <script>
@@ -24,6 +26,18 @@ export default {
     position: absolute;
     right: 0;
     cursor: pointer;
+    
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: {
+        image: url('../assets/images/user.png');
+        size: 40px;
+        repeat: no-repeat;
+        position: center;
+      }
+    }
   }
 }
 </style>

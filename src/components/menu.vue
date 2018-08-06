@@ -71,6 +71,25 @@ export default {
         cursor: pointer;
         color: #999;
         font-size: 0.8em;
+
+        &.active{
+          color: #333;
+          font-weight: bold;
+          background-color: #f9f9f9;
+          border-top: 1px solid $borderColorLight;
+          border-bottom: 1px solid $borderColorLight;
+          position: relative;
+
+          &:after{
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 100%;
+            background-color: #f9f9f9;
+            top: 0;
+            right: -1px;
+          }
+        }
       }
 
       b{

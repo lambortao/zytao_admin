@@ -1,5 +1,7 @@
 <template>
-  <div id="thinkList"></div>
+  <div id="thinkList">
+    这里是说说的列表
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,7 @@
 <template>
-  <div id="welcome"></div>
+  <div id="welcome">
+    这里是欢迎页面
+  </div>
 </template>
 
 <script>
