@@ -33,6 +33,8 @@ export default {
 .main{
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  height: 100vh;
 
   #home{
     flex: 1;

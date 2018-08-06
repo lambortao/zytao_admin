@@ -36,11 +36,11 @@ export default {
 @import '../assets/scss/method.scss';
 
 #menu{
-  width: 200px;
-  height: 100vh;
+  width: 160px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  border-right: 1px solid $borderColorLight;
 
   header{
     width: 100%;
@@ -48,8 +48,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.6rem;
     border-bottom: 1px solid $borderColorLight;
+
+    h1{
+      margin: 0;
+      font-size: 1.25em;
+    }
   }
   nav{
     padding: 30px 0;
@@ -66,6 +70,7 @@ export default {
         align-items: center;
         cursor: pointer;
         color: #999;
+        font-size: 0.8em;
       }
 
       b{
