@@ -10,7 +10,7 @@ import axios from 'axios';
 // 调取公用函数内的接口函数
 import { __port } from '@/utils'
 
-Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
+Vue.use(ElementUI, { size: 'medium', zIndex: 3000 });
 
 // 全局组件
 // 内容列表组件
