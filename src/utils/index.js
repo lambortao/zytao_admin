@@ -4,8 +4,8 @@ import Vue from 'vue'
 /**
  * 后台接口函数
  * 
- * @param {string} url 接口的具体地址 
- * @param {obj} data 需要传到后台的文件
+ * @param {string} url 接口的具体地址 - 必须
+ * @param {obj} data 需要传到后台的文件 - 可选
  */
 export function __port(url, data) {
   return axios({
