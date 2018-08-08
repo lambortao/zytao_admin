@@ -5,7 +5,6 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
-import tableList from './libs/my-table.vue'
 import axios from 'axios';
 // 调取公用函数内的接口函数
 import { __port } from '@/utils'
@@ -14,7 +13,6 @@ Vue.use(ElementUI, { size: 'medium', zIndex: 3000 });
 
 // 全局组件
 // 内容列表组件
-Vue.component('table-list', tableList);
 
 // 全局注册
 Vue.prototype.$port = __port;

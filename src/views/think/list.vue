@@ -1,19 +1,29 @@
 <template>
   <div id="thinkList">
-    <table-list 
-    :port-value="portData"
-    />
+    <div class="content">
+      <toolsBar 
+      :add-button="toolBarBool"/>
+      <tableList 
+      :port-value="portData"/>
+    </div>
   </div>
 </template>
 
 <script>
 import { getThinkList } from '@/api'
+import tableList from '@/libs/my-table.vue'
+import toolsBar from '@/libs/tool-bar.vue'
 
 export default {
   data () {
     return {
-      portData: []
+      portData: [],
+      toolBarBool: false
     }
+  },
+  components: {
+    tableList,
+    toolsBar
   },
   methods: {
     getList () {
@@ -34,5 +44,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.content{
+  padding: 10px;
+}
 </style>
