@@ -20,6 +20,16 @@ export default {
       type: Array,
       required: true
     }
+  },
+  data () {
+    return {
+      
+    }
+  },
+  created () {
+    setTimeout(()=>{
+      console.log(this.portValue);
+    }, 2000);
   }
 }
 </script>
