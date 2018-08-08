@@ -30,6 +30,7 @@ table{
   font-size: 0.8em;
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 15px;
 
   tr,th,td{
     border: 1px solid $borderColorLight;
