@@ -10,6 +10,7 @@
       :del-show="toolBar.del.show"
       :dle-value="toolBar.del.value"/>
       <tableList 
+      :table-menu="portData"
       :port-value="portData"/>
     </div>
   </div>
