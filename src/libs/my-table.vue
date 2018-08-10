@@ -1,12 +1,14 @@
 <template>
   <table>
     <tr class="header">
+      <td class="table-option active" width="30"><i></i></td>
       <td v-for="(item, $index) in tableMenu" v-text="getMenuData(item, 1)"></td>
-      <td>操作</td>
+      <td width="150">操作</td>
     </tr>
     <tr class="intro" v-for="(items, $index) in relyData">
+      <td class="table-option"><i></i></td>
       <td v-for="(item, num) in pageField" v-text="relyData[$index][item]"></td>
-      <td class="icon" width="150">
+      <td class="icon">
         <b v-for="(value, key, index) in toolSet" v-show="value">{{ toolSetText[index] }}</b>
       </td>
     </tr>
@@ -51,6 +53,7 @@
  * 4、操作的数据
  *  - relyData: 格式为对象数组
  */
+const cityOptions = [];
 export default {
   props: {
     relyData: {
@@ -87,12 +90,25 @@ export default {
   },
   data () {
     return {
+      checkAll: false,
+      checkedCities: '',
+      cities: cityOptions,
+      isIndeterminate: true,
       pageField: [],
       toolSetText: ['改', '顶', '排', '删'],
       toolSetField: ['modify', 'hot', 'orderby', 'delete']
     }
   },
   methods: {
+    handleCheckAllChange(val) {
+      this.checkedCities = val ? cityOptions : [];
+      this.isIndeterminate = false;
+    },
+    handleCheckedCitiesChange(value) {
+      let checkedCount = value.length;
+      this.checkAll = checkedCount === this.cities.length;
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+    },
     // 取出需要循环的字段
     getField () {
       this.pageField = Object.keys(this.tableMenu);
@@ -117,6 +133,45 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../assets/scss/method.scss';
+
+.table-option{
+
+  i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+    border-radius: 2px;
+    border: 1px solid $borderColorLight;
+    cursor: pointer;
+    position: relative;
+    &:after{
+      content: "";
+      border: 1px solid #fff;
+      border-left: 0;
+      border-top: 0;
+      width: 5px;
+      height: 8px;
+      position: absolute;
+      top: 1px;
+      left: 4px;
+      transform: rotate(45deg) scaleY(0);
+      transition: transform .15s ease-in .05s;
+      transform-origin: center;
+    }
+  }
+  
+  &.active{
+    i{
+      background-color: $danger;
+      &:after{
+        transform: rotate(45deg) scaleY(1);
+      }
+    }
+  }
+}
 
 table{
   font-size: 0.8em;
@@ -163,7 +218,7 @@ table{
       height: 25px;
       text-align: center;
       line-height: 25px;
-      margin: 0;
+      margin: 0 2px;
       cursor: pointer;
       border: 1px solid $borderColorLight;
       border-radius: 3px;
