@@ -1,15 +1,14 @@
 <template>
   <table>
     <tr class="header">
-      <td>测试</td>
-      <td>测试</td>
-      <td>测试</td>
-      <td>测试</td>
-      <td>测试</td>
-      <td>测试</td>
+      <td v-for="(item, $index) in tableMenu" v-text="getMenuData(item, 1)"></td>
+      <td>操作</td>
     </tr>
-    <tr class="intro">
-
+    <tr class="intro" v-for="(items, $index) in relyData">
+      <td v-for="(item, num) in pageField" v-text="relyData[$index][item]"></td>
+      <td class="icon" width="150">
+        <b v-for="(value, key, index) in toolSet" v-show="value">{{ toolSetText[index] }}</b>
+      </td>
     </tr>
   </table>
 </template>
@@ -48,22 +47,70 @@
  *      }
  *    - 键：功能按钮，自上向下：修改、置顶&取消置顶、排序、删除
  *    - 值：如果传的是字符串，则以此值为操作内容的字段依据，如果为false，则不显示该按钮
+ * 
+ * 4、操作的数据
+ *  - relyData: 格式为对象数组
  */
 export default {
   props: {
-    portValue: {
+    relyData: {
       type: Array,
-      required: true
+      default: () => {
+        reutrn [{}];
+      }
+    },
+    tableMenu: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
+    mainLinkShow: {
+      type: Boolean,
+      default: false
+    },
+    mainLinkValue: {
+      type: String,
+      default: ''
+    },
+    toolSet: {
+      type: Object,
+      default: () => {
+        return {
+          modify: 'id',
+          hot: 'hot',
+          orderby: false,
+          delete: 'id'
+        }
+      }
     }
   },
   data () {
     return {
-      
+      pageField: [],
+      toolSetText: ['改', '顶', '排', '删'],
+      toolSetField: ['modify', 'hot', 'orderby', 'delete']
+    }
+  },
+  methods: {
+    // 取出需要循环的字段
+    getField () {
+      this.pageField = Object.keys(this.tableMenu);
+    },
+    getMenuData (data, num) {
+      let dataArr = data.split('|');
+      if (dataArr.length < num) {
+        console.log(`取值的位置与数据长度不符，数据为：${data}，长度为${num}}`);
+        return;
+      }
+      return dataArr[num - 1];
     }
   },
   created () {
+    this.getField();
+    console.log(this.relyData);
     setTimeout(()=>{
-      console.log(this.portValue);
+      console.log(this.toolSet);
     }, 2000);
   }
 }

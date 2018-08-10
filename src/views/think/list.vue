@@ -10,8 +10,9 @@
       :del-show="toolBar.del.show"
       :dle-value="toolBar.del.value"/>
       <tableList 
-      :table-menu="portData"
-      :port-value="portData"/>
+      :rely-data="relyData"
+      :table-menu="tableMenu"
+      :tool-set="toolSet"/>
     </div>
   </div>
 </template>
@@ -37,7 +38,7 @@ import toolsBar from '@/libs/tool-bar.vue'
 export default {
   data () {
     return {
-      portData: [],
+      relyData: [],
       // 把每个组件需要的数据写在一个对象里面
       toolBar: {
         show: true,
@@ -46,7 +47,7 @@ export default {
           value: 'think'
         },
         select: {
-          show: true,
+          show: false,
           value: []
         },
         del: {
@@ -54,7 +55,18 @@ export default {
           value: 'think'
         }
       },
-      selectArticle: []
+      selectArticle: [],
+      tableMenu: {
+        id: 'ID|text|',
+        content: '正文|text|',
+        time: '发表时间|text|'
+      },
+      toolSet: {
+        modify: 'id',
+        hot: 'hot',
+        orderby: true,
+        delete: 'id'
+      }
     }
   },
   components: {
@@ -70,7 +82,7 @@ export default {
        * 3、列表后的操作工具栏需要显示什么东西
        */
       this.$port('think/getList').then(data => {
-        this.portData = data;
+        this.relyData = data;
       })
     },
     // 临时函数，以后可以挪到文章内使用
@@ -82,7 +94,7 @@ export default {
   },
   created () {
     this.getList();
-    this.getArticleSelectList();
+    // this.getArticleSelectList();
   }
 }
 </script>
