@@ -165,6 +165,7 @@ export default {
   
   &.active{
     i{
+      border-color: $danger;
       background-color: $danger;
       &:after{
         transform: rotate(45deg) scaleY(1);
