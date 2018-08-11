@@ -90,25 +90,13 @@ export default {
   },
   data () {
     return {
-      checkAll: false,
-      checkedCities: '',
-      cities: cityOptions,
-      isIndeterminate: true,
       pageField: [],
       toolSetText: ['改', '顶', '排', '删'],
-      toolSetField: ['modify', 'hot', 'orderby', 'delete']
+      toolSetField: ['modify', 'hot', 'orderby', 'delete'],
+      toolSetFun: {}
     }
   },
   methods: {
-    handleCheckAllChange(val) {
-      this.checkedCities = val ? cityOptions : [];
-      this.isIndeterminate = false;
-    },
-    handleCheckedCitiesChange(value) {
-      let checkedCount = value.length;
-      this.checkAll = checkedCount === this.cities.length;
-      this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
-    },
     // 取出需要循环的字段
     getField () {
       this.pageField = Object.keys(this.tableMenu);
@@ -120,7 +108,8 @@ export default {
         return;
       }
       return dataArr[num - 1];
-    }
+    },
+    // 给操作栏按钮加事件函数
   },
   created () {
     this.getField();
