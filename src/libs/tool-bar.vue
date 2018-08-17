@@ -1,15 +1,15 @@
 <template>
   <section class="tools">
-    <el-button class="mgr5" v-show="addShow" icon="el-icon-edit" @click="goEdit()">新增</el-button>
-    <el-select class="mgr5" v-show="selectShow" v-model="selectData" placeholder="请选择">
+    <el-button class="mgr5" v-show="toolsValue.add.show" icon="el-icon-edit" @click="goEdit()">新增</el-button>
+    <el-select class="mgr5" v-show="toolsValue.select.show" v-model="selectData" placeholder="请选择">
       <el-option 
-        v-for="(items, $index) in selectValue"
+        v-for="(items, $index) in toolsValue.select.value"
         :key="$index"
         :value="items">
       </el-option>
     </el-select>
     <el-button 
-      v-show="delShow" 
+      v-show="toolsValue.del.show" 
       @click="del()" 
       icon="el-icon-delete" 
       type="danger" 
@@ -39,32 +39,7 @@
  *  - delDelDisabled: 删除按钮是否禁用（默认为禁用状态 - true，检测到列表内有勾选后会解开禁用）
  */
 export default {
-  props: {
-    addShow: {
-      type: Boolean,
-      default: true
-    },
-    addValue: {
-      type: String,
-      default: ''
-    },
-    selectShow: {
-      type: Boolean,
-      default: true
-    },
-    selectValue: {
-      type: Array,
-      default: []
-    },
-    delShow: {
-      type: Boolean,
-      default: false
-    },
-    delValue: {
-      type: String,
-      default: ''
-    }
-  },
+  props: ['toolsValue'],
   data () {
     return {
       selectData: '',
@@ -73,14 +48,14 @@ export default {
   },
   methods: {
     goEdit () {
-      this.$router.push({path: `${this.addValue}/edit`})
+      this.$router.push({path: `${this.toolsValue.add.value}/edit`})
     },
     del () {
       console.log('点击del');
     }
   },
   created () {
-    console.log(this.addValue);
+    // console.log(this.toolsValue.select.value);
   }
 }
 </script>

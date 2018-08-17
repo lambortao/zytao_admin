@@ -1,18 +1,15 @@
 <template>
   <div id="thinkList">
     <div class="content">
-      <toolsBar 
-      v-show="toolBar.show"
-      :add-show="toolBar.add.show"
-      :add-value="toolBar.add.value"
-      :select-show="toolBar.select.show"
-      :select-value="toolBar.select.value"
-      :del-show="toolBar.del.show"
-      :dle-value="toolBar.del.value"/>
+      <toolsBar :toolsValue="toolBar" />
       <tableList 
       :rely-data="relyData"
       :table-menu="tableMenu"
       :tool-set="toolSet"/>
+      <buttonCounter title="测试" />
+      <buttonCounter title="测试1" />
+      <buttonCounter title="测试2" />
+      <buttonCounter title="测试3" />
     </div>
   </div>
 </template>
@@ -21,6 +18,7 @@
 import { getThinkList } from '@/api'
 import tableList from '@/libs/my-table.vue'
 import toolsBar from '@/libs/tool-bar.vue'
+import buttonCounter from '@/libs/button-counter.vue'
 
 /**
  * 该文件内默认会有两个自定义子组件
@@ -47,8 +45,8 @@ export default {
           value: 'think'
         },
         select: {
-          show: false,
-          value: []
+          show: true,
+          value: ['js', 'css']
         },
         del: {
           show: true,
@@ -71,7 +69,8 @@ export default {
   },
   components: {
     tableList,
-    toolsBar
+    toolsBar,
+    buttonCounter
   },
   methods: {
     getList () {
