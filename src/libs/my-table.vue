@@ -3,7 +3,7 @@
     <tr class="header">
       <td class="table-option active" width="30"><i></i></td>
       <td v-for="(item, $index) in tableMenu" v-text="getMenuData(item, 1)"></td>
-      <td width="150">操作</td>
+      <td width="150" @click="$emit('click-button', 5)">操作</td>
     </tr>
     <tr class="intro" v-for="(items, $index) in relyData">
       <td class="table-option"><i></i></td>
@@ -12,6 +12,7 @@
         <b v-for="(value, key, index) in toolSet" v-show="value">{{ toolSetText[index] }}</b>
       </td>
     </tr>
+
   </table>
 </template>
 <script>

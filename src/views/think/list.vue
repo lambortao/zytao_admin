@@ -5,11 +5,9 @@
       <tableList 
       :rely-data="relyData"
       :table-menu="tableMenu"
-      :tool-set="toolSet"/>
-      <buttonCounter title="测试" />
-      <buttonCounter title="测试1" />
-      <buttonCounter title="测试2" />
-      <buttonCounter title="测试3" />
+      :tool-set="toolSet"
+      @click-button="delValue"/>
+      <!-- <buttonCounter v-model="searchText"/> -->
     </div>
   </div>
 </template>
@@ -36,6 +34,7 @@ import buttonCounter from '@/libs/button-counter.vue'
 export default {
   data () {
     return {
+      searchText: '测试',
       relyData: [],
       // 把每个组件需要的数据写在一个对象里面
       toolBar: {
@@ -72,7 +71,16 @@ export default {
     toolsBar,
     buttonCounter
   },
+  watch: {
+    searchText(val) {
+      console.log(val);
+    }
+  },
   methods: {
+    delValue (val) {
+      this.buttonNum += val;
+      console.log(this.buttonNum);
+    },
     getList () {
        /**
        * 这里需要传的东西可能会有很多
