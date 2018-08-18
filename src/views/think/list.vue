@@ -64,7 +64,7 @@ export default {
       toolSet: {
         modify: 'id',
         hot: 'hot',
-        orderby: true,
+        orderby: false,
         delete: 'id'
       }
     }
@@ -84,6 +84,7 @@ export default {
     getList () {
       this.$port('think/getList').then(data => {
         this.relyData = data;
+        console.log(data);
       })
     },
     // 临时函数，以后可以挪到文章内使用
@@ -103,8 +104,12 @@ export default {
       console.log(val);
     },
     deleteFun (val) {
-      console.log(val);
-    },
+      this.$del('think/del',{
+        id: val
+      }, ()=>{
+        this.getList();
+      })
+    }
   },
   created () {
     this.getList();

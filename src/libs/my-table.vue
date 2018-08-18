@@ -9,7 +9,7 @@
       <td class="table-option"><i></i></td>
       <td v-for="(item, num) in pageField" v-text="relyData[$index][item]"></td>
       <td class="icon">
-        <b v-for="(value, key, index) in toolSet" v-show="value" @click="$emit(`click-${key}`, items.id)">{{ toolSetText[index] }}</b>
+        <b v-for="(value, key, index) in toolSet" v-if="value" @click="$emit(`click-${key}`, items.id)">{{ toolSetText[index] }}</b>
       </td>
     </tr>
   </table>
@@ -113,10 +113,6 @@ export default {
   },
   created () {
     this.getField();
-    console.log(this.relyData);
-    setTimeout(()=>{
-      console.log(this.toolSet);
-    }, 2000);
   }
 }
 </script>

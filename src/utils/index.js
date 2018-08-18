@@ -23,3 +23,26 @@ export function __port(url, data) {
     }
   })
 }
+
+
+/**
+ * 确认是否删除
+ */
+
+ export function __del(port, data, fun) {
+  this.$confirm(`确定删除这行数据吗？`, '提醒', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  }).then(() => {
+    this.$port(port, data).then(data => {
+      if (data.msg) {
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        });
+        fun();
+      }
+    });
+  });
+ }
