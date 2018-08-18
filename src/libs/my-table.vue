@@ -3,16 +3,15 @@
     <tr class="header">
       <td class="table-option active" width="30"><i></i></td>
       <td v-for="(item, $index) in tableMenu" v-text="getMenuData(item, 1)"></td>
-      <td width="150" @click="$emit('click-button', 5)">操作</td>
+      <td width="150">操作</td>
     </tr>
     <tr class="intro" v-for="(items, $index) in relyData">
       <td class="table-option"><i></i></td>
       <td v-for="(item, num) in pageField" v-text="relyData[$index][item]"></td>
       <td class="icon">
-        <b v-for="(value, key, index) in toolSet" v-show="value">{{ toolSetText[index] }}</b>
+        <b v-for="(value, key, index) in toolSet" v-show="value" @click="$emit(`click-${key}`, items.id)">{{ toolSetText[index] }}</b>
       </td>
     </tr>
-
   </table>
 </template>
 <script>
@@ -50,7 +49,6 @@
  *      }
  *    - 键：功能按钮，自上向下：修改、置顶&取消置顶、排序、删除
  *    - 值：如果传的是字符串，则以此值为操作内容的字段依据，如果为false，则不显示该按钮
- *    - TODO: 这里的值是否可以考虑把后台接口也放进去，用竖线分割开来，然后就直接在组件内发送请求？那如果这样是可以的话那么批量删除那里是不是也需要一个接口
  * 
  * 4、操作的数据
  *  - relyData: 格式为对象数组

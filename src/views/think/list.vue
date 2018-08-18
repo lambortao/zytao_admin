@@ -6,8 +6,11 @@
       :rely-data="relyData"
       :table-menu="tableMenu"
       :tool-set="toolSet"
-      @click-button="delValue"/>
-      <!-- <buttonCounter v-model="searchText"/> -->
+      @click-modify="modifyFun"
+      @click-hot="hotFun"
+      @click-orderby="orderbyFun"
+      @click-delete="deleteFun"
+      />
     </div>
   </div>
 </template>
@@ -77,17 +80,8 @@ export default {
     }
   },
   methods: {
-    delValue (val) {
-      this.buttonNum += val;
-      console.log(this.buttonNum);
-    },
+    // 获取表格数据
     getList () {
-       /**
-       * 这里需要传的东西可能会有很多
-       * 1、需要定义顶部工具栏需要哪些工具，如基础的新增，筛选，还有批量删除等
-       * 2、还要传一个数组来确定列表需要显示什么东西
-       * 3、列表后的操作工具栏需要显示什么东西
-       */
       this.$port('think/getList').then(data => {
         this.relyData = data;
       })
@@ -97,7 +91,20 @@ export default {
       this.$port('article/getSelectList').then(data => {
         this.toolBar.select.value = data;
       })
-    }
+    },
+    // 改、顶、排、删，四大操作按钮的点击事件，传的值为点击的ID
+    modifyFun (val) {
+      console.log(val);
+    },
+    hotFun (val) {
+      console.log(val);
+    },
+    orderbyFun (val) {
+      console.log(val);
+    },
+    deleteFun (val) {
+      console.log(val);
+    },
   },
   created () {
     this.getList();
