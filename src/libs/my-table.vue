@@ -40,7 +40,7 @@
  *      
  * 
  * 2、正文跳转链接
- *  - mainLinkShow: 是否开启跳转（布尔值，默认不开启）
+ *  - mainLinkShow: 是否开启跳转，主要作用是用来查看当前数据的前端页面（布尔值，默认不开启）
  *  - mainLinkValue: 跳转的链接（字符串，默认格式为：urlhost + mainLinkValue + id，可根据需求自行修改）
  * 
  * 3、所需的操作工具集合
@@ -98,10 +98,7 @@ export default {
   },
   data () {
     return {
-      pageField: [],
-      toolSetText: ['改', '顶', '排', '删'],
-      toolSetField: ['modify', 'hot', 'orderby', 'delete'],
-      toolSetFun: {}
+      pageField: []
     }
   },
   methods: {
