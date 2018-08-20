@@ -9,7 +9,11 @@
       <td class="table-option"><i></i></td>
       <td v-for="(item, num) in pageField" v-text="relyData[$index][item]"></td>
       <td class="icon">
-        <b v-for="(value, key, index) in toolSet" v-if="value" @click="$emit(`click-${key}`, items.id)">{{ toolSetText[index] }}</b>
+        <router-link tag="b" :to="{path: `${routerName}/edit?id=${items.id}`}" v-show="toolSet['modify']">改</router-link>
+        <b v-show="toolSet['hot']" @click="$emit(`click-hot`, {hot: 1, id: items.id})" v-if="items.hot == 0">顶</b>
+        <b v-show="toolSet['hot']" @click="$emit(`click-hot`, {hot: 0, id: items.id})" v-else class="hot">落</b>
+        <b v-show="toolSet['orderby']">排</b>
+        <b v-show="toolSet['delete']" @click="$emit(`click-delete`, items.id)">删</b>
       </td>
     </tr>
   </table>
@@ -73,6 +77,10 @@ export default {
       default: false
     },
     mainLinkValue: {
+      type: String,
+      default: ''
+    },
+    routerName: {
       type: String,
       default: ''
     },
@@ -210,6 +218,10 @@ table{
       border-radius: 3px;
       transition: all 300ms ease;
 
+      &.hot{
+        border: 1px solid $danger;
+        color: $danger;
+      }
       &:hover{
         border: 1px solid $danger;
         color: $danger;

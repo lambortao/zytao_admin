@@ -4,6 +4,7 @@
       <toolsBar :toolsValue="toolBar" />
       <tableList 
       :rely-data="relyData"
+      :router-name="routerName"
       :table-menu="tableMenu"
       :tool-set="toolSet"
       @click-modify="modifyFun"
@@ -56,6 +57,7 @@ export default {
         }
       },
       selectArticle: [],
+      routerName: 'think',
       tableMenu: {
         id: 'ID|text|',
         content: '正文|text|',
@@ -64,7 +66,7 @@ export default {
       toolSet: {
         modify: 'id',
         hot: 'hot',
-        orderby: false,
+        orderby: true,
         delete: 'id'
       }
     }
@@ -98,7 +100,9 @@ export default {
       console.log(val);
     },
     hotFun (val) {
-      console.log(val);
+      this.$hot('think/hot', val, () => {
+        this.getList();
+      })
     },
     orderbyFun (val) {
       console.log(val);
@@ -108,7 +112,7 @@ export default {
         id: val
       }, ()=>{
         this.getList();
-      })
+      });
     }
   },
   created () {

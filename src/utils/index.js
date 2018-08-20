@@ -44,5 +44,28 @@ export function __port(url, data) {
         fun();
       }
     });
-  });
+  }).catch(() => {});
  }
+
+ /**
+  * 置顶的操作的确认
+  */
+
+export function __hot(port, data, fun) {
+  this.$port(port, data).then(e => {
+    if (e.msg) {
+      if (e.hot) {
+        this.$message({
+          type: 'success',
+          message: '已置顶'
+        });
+      } else {
+        this.$message({
+          type: 'success',
+          message: '已取消置顶'
+        });
+      }
+      fun();
+    }
+  });
+}
