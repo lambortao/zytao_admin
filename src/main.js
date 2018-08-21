@@ -7,7 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import axios from 'axios';
 // 调取公用函数内的接口函数
-import { __port, __del, __hot } from '@/utils'
+import { __port, __del, __hot } from '@/utils/api'
 
 Vue.use(ElementUI, { size: 'medium', zIndex: 3000 });
 
