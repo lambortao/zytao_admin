@@ -48,7 +48,7 @@
  *    - {
  *        modify: 'id',
  *        hot: 'hot',
- *        orderby: false,
+ *        orderby: false,`
  *        delete: 'id'
  *      }
  *    - 键：功能按钮，自上向下：修改、置顶&取消置顶、排序、删除
