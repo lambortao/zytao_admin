@@ -1,7 +1,7 @@
 <template>
   <div id="menu">
     <header class="logo">
-      <h1>zytao</h1>
+      <router-link tag="h1" to="/">zytao</router-link>
     </header>
     <nav>
       <div v-for="(item, $index) in navData">
@@ -53,6 +53,8 @@ export default {
     h1{
       margin: 0;
       font-size: 1.25em;
+      cursor: pointer;
+      @include bottom-line(1px, 1px, -5px, 2px);
     }
   }
   nav{

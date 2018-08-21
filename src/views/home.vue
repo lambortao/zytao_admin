@@ -2,7 +2,7 @@
   <div class="main">
     <Menu></Menu>
     <div id="home">
-      <Header></Header>
+      <!-- <Header></Header> -->
       <div class="content-box">
         <transition name="ani">
           <router-view/>

@@ -1,14 +1,11 @@
 <template>
-  <div id="thinkEdit">
-    
-  </div>
+  <div class="input"></div>
 </template>
-
 <script>
 export default {
   
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 
 </style>
