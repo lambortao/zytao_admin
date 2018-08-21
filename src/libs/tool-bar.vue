@@ -1,6 +1,13 @@
 <template>
   <section class="tools">
     <el-button class="mgr5" v-show="toolsValue.add.show" icon="el-icon-edit" @click="goEdit()">新增</el-button>
+    <el-button 
+      v-show="toolsValue.del.show" 
+      @click="del()" 
+      icon="el-icon-delete" 
+      type="danger" 
+      :disabled="delDisabled"
+      style="margin: 0 5px 0 0;">删除</el-button>
     <el-select class="mgr5" v-show="toolsValue.select.show" v-model="selectData" placeholder="请选择">
       <el-option 
         v-for="(items, $index) in toolsValue.select.value"
@@ -8,12 +15,6 @@
         :value="items">
       </el-option>
     </el-select>
-    <el-button 
-      v-show="toolsValue.del.show" 
-      @click="del()" 
-      icon="el-icon-delete" 
-      type="danger" 
-      :disabled="delDisabled">删除</el-button>
   </section>
 </template>
 <script>
