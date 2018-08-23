@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { getThinkList } from '@/api'
 import tableList from '@/libs/my-table.vue'
 import toolsBar from '@/libs/tool-bar.vue'
 import buttonCounter from '@/libs/button-counter.vue'

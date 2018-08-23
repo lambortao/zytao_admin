@@ -1,13 +1,15 @@
 <template>
   <div id="menu">
-    <header class="logo">
-      <router-link tag="h1" to="/">zytao</router-link>
-    </header>
-    <nav>
-      <div v-for="(item, $index) in navData">
-        <router-link tag="p" :to="{path: '/home/'+item.url}"><b :style="{backgroundImage: 'url(' + require(`../assets/${item.icon}`) + ')'}"></b><span>{{item.name}}</span></router-link>
-      </div>
-    </nav>
+    <div class="menu-box">
+      <header class="logo">
+        <router-link tag="h1" to="/">zytao</router-link>
+      </header>
+      <nav>
+        <div v-for="(item, $index) in navData">
+          <router-link tag="p" :to="{path: '/home/'+item.url}"><b :style="{backgroundImage: 'url(' + require(`../assets/${item.icon}`) + ')'}"></b><span>{{item.name}}</span></router-link>
+        </div>
+      </nav>
+    </div>
   </div>
 </template>
 <script>
@@ -32,23 +34,32 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/scss/method.scss';
 
 #menu{
-  width: 160px;
+  width: 0px;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  border-right: 1px solid $borderColorLight;
+  padding: 10px 5px;
+  transition: all 500ms;
 
+  .menu-box{
+    width: 150px;
+    height: 100%;
+    border: 1px solid $borderColorLight;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all 500ms;
+    transform: translateX(-150px);
+  }
   header{
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid $borderColorLight;
+    // border-bottom: 1px solid $borderColorLight;
 
     h1{
       margin: 0;
@@ -58,7 +69,7 @@ export default {
     }
   }
   nav{
-    padding: 30px 0;
+    padding: 10px 0 30px 0;
     flex: 1;
     div{
       width: 100%;

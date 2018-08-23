@@ -1,12 +1,13 @@
 <template>
   <div class="main">
-    <Menu></Menu>
+    <Menu class="menu-all" />
     <div id="home">
-      <!-- <Header></Header> -->
+      <Tab></Tab>
       <div class="content-box">
         <transition name="ani">
           <router-view/>
         </transition>
+      <!-- <div>收起</div> -->
       </div>
     </div>
   </div>
@@ -27,12 +28,13 @@ export default {
   },
   data () {
     return {
-      msg: ''
+      msg: '',
+      collapseBool: false
     }
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/scss/method.scss';
 
 .main{
@@ -40,24 +42,43 @@ export default {
   justify-content: space-between;
   width: 100%;
   height: 100vh;
+  transition: all 500ms;
 
   #home{
-    flex: 1;
+    width: 100%;
+    transition: all 500ms;
 
     .content-box{
       width: 100%;
       height: 100%;
-      padding: 10px;
+      padding: 10px 5px;
       position: relative;
 
       > div{
-        width: calc(100% - 20px);
+        width: calc(100% - 15px);
         background-color: #fff;
         border-radius: 3px;
         border: 1px solid $borderColorLight;
         padding: 10px;
         // margin: 10px;
         position: absolute;
+      }
+    }
+
+    // &.collapse{
+    //   width: 100%;
+    // }
+  }
+
+  .menu-all{
+    &:hover{
+      width: 160px;
+
+      .menu-box{
+        transform: translateX(0px) !important;
+      }
+      & + #home{
+        width: calc(100% - 160px);
       }
     }
   }
