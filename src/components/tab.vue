@@ -1,7 +1,7 @@
 <template>
   <div id="tab">
     <div class="tab-box">
-      主页 / 文章
+      主页 > 文章
     </div>
   </div>
 </template>

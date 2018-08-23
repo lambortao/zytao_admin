@@ -11,7 +11,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import cmsConfig from '@/config/index';
 import Menu from '@/components/menu';
@@ -73,6 +72,16 @@ export default {
       & + #home{
         width: calc(100% - 160px);
       }
+    }
+  }
+  .in-home{
+    width: 160px;
+
+    .menu-box{
+      transform: translateX(0px) !important;
+    }
+    & + #home{
+      width: calc(100% - 160px);
     }
   }
 }

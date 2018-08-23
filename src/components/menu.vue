@@ -93,14 +93,19 @@ export default {
           border-bottom: 1px solid $borderColorLight;
           position: relative;
 
-          &:after{
+          &:after, &:before{
             position: absolute;
             content: '';
             width: 1px;
             height: 100%;
             background-color: #f9f9f9;
             top: 0;
+          }
+          &:after{
             right: -1px;
+          }
+          &:before{
+            left: -1px;
           }
         }
       }
@@ -112,6 +117,7 @@ export default {
           size: 100%;
           repeat: no-repeat;
         }
+        transition: all 500ms;
       }
       span{
         margin: 0 0 0 5px;
