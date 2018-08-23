@@ -7,7 +7,6 @@
         <transition name="ani">
           <router-view/>
         </transition>
-      <!-- <div>收起</div> -->
       </div>
     </div>
   </div>
@@ -28,8 +27,7 @@ export default {
   },
   data () {
     return {
-      msg: '',
-      collapseBool: false
+      msg: ''
     }
   }
 }
@@ -60,14 +58,9 @@ export default {
         border-radius: 3px;
         border: 1px solid $borderColorLight;
         padding: 10px;
-        // margin: 10px;
         position: absolute;
       }
     }
-
-    // &.collapse{
-    //   width: 100%;
-    // }
   }
 
   .menu-all{
