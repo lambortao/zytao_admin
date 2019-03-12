@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+	<title>星巴克</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+	<section>
+		<h2 class="title">情人节快乐 | 今天来星巴克"领"情话，一句暖到TA心里</h2>
+		<div class="meta_content">
+			<span><a href="javascript:;">星巴克中国</a></span>
+			<small>1周前</small>
+		</div>
+		<article id="articleMain">
+			<img src="./images/t.jpg">
+			<p>sad发送到发送到发送到发斯蒂芬sad发送到发送到发送到发斯蒂芬sad发送到发送到发送到发斯蒂芬sad发送到发送到发送到发斯蒂芬</p>
+		</article>
+	</section>
+	<div class="commodity-box">
+		<div class="title">
+			<h4>本期商品</h4>
+			<p class="more">更多（<span>7</span>）</p>
+		</div>
+		<div class="commodity-list">
+			<div class="commodity-list-box">
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡1</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡2</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡3</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡4</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡5</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡6</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡7</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡8</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡9</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡0</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡</p>
+				</div>
+				<div class="commodity">
+					<figure>
+						<p><img src="./images/p.png"></p>
+						<span class="add"></span>
+					</figure>
+					<p>浓郁巧艺摩卡</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="./js/moment.js"></script>
+<script src="./js/require.js" data-main="./js/main.js"></script>
+<script>
+$(function(){
+	// import 
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+	console.log(isAndroid);
+	// 底部打开收起
+	(function() {
+		var expand = false;
+		var more = $('.more');
+		var productNumber = 7;
+		more.click(function() {
+			expand = expand ? false : true; 
+			var buttonText = expand ? '收起' : `更多（<span>${productNumber}</span>）`;
+			var nowNum = expand ? 1 : 0;
+			if (isAndroid) {
+				$('.main .commodity').addClass('android');
+				$('.main').toggleClass('expandandroid');
+				setTimeout(()=> {
+					moveAni(nowNum);
+				}, 500);
+			} else {
+				$('.main').toggleClass('expand');
+				moveAni(nowNum);
+			}
+			$(this).html(buttonText);	
+		});
+	})();
+	
+	// 位移动画，传0代表是未展开，1代表展开
+	function moveAni(num) {
+		/**	
+		 * 元素的基础位置信息
+		 * 分别为[元素宽，元素高，元素间距，一行几个元素]
+		 */
+		var eventWh = [
+			[20.67, 39.34, 2.93, 4],
+			[26.94, 45.61, 5.32, 3]
+		],	
+		nowRow = 0; // 列
+		
+		$('.commodity').each(function(index) {
+			// 当前是第几列
+			var indexColumn = index%eventWh[num][3];
+			// 根据列计算元素距离左边的位置
+			var nowLeft = ((indexColumn * eventWh[num][0]) + (indexColumn * eventWh[num][2]) + 4.26).toFixed(2);
+			// 根据行计算元素距离顶部的位置
+			var nowTop = (nowRow * eventWh[num][1]).toFixed(2);
+			// 赋值
+			$(this).css('transform', `translate3D(${nowLeft}vw, ${nowTop}vw, 0)`);
+			// 更新当前行数
+			if (indexColumn === (eventWh[num][3] - 1)) {
+				nowRow++;
+			}
+		});
+		$('.commodity-list-box').css('height', `${(((nowRow + 1) * eventWh[num][1]).toFixed(2))}vw`);
+	}
+	moveAni(0);
+
+	// 获取数据
+	var proId = '572f2ca9-fb02-43a5-bd1d-90136b629508';
+});
+</script>
+</body>
+</html>
